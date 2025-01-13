@@ -35,3 +35,9 @@ build/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# outputs
+*metadata.db*
+submission-*.json
+make-csv-tsv-*.ipynb
+test-data
