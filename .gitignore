@@ -39,3 +39,5 @@ Temporary Items
 # outputs
 metadata.db*
 submission.json
+make-csv-tsv.ipynb
+test-data
