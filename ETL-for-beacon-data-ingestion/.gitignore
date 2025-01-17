@@ -38,6 +38,10 @@ Temporary Items
 
 # outputs
 *metadata.db*
+*.db*
 submission-*.json
 make-csv-tsv-*.ipynb
 test-data
+
+# schemas
+schemas/*.json
