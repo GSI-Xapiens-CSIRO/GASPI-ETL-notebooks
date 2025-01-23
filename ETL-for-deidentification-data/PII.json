@@ -1,0 +1,27 @@
+[
+  {
+    "nama": "Budi Santoso",
+    "umur": 45,
+    "jenis_kelamin": "Laki-laki",
+    "alamat": "Jl. Merdeka No. 10, Jakarta",
+    "nomor_telepon": "081234567890",
+    "email": "budi@mail.com",
+    "riwayat_medis": [
+      "Diabetes tipe 2",
+      "Hipertensi",
+      "Alergi terhadap penicillin"
+    ]
+  },
+  {
+    "nama": "Siti Aminah",
+    "umur": 30,
+    "jenis_kelamin": "Perempuan",
+    "alamat": "Jl. Sudirman No. 20, Bandung",
+    "nomor_telepon": "081987654321",
+    "email": "sitiaminah@mail.com",
+    "riwayat_medis": [
+      "Asma",
+      "Alergi terhadap kacang"
+    ]
+  }
+]
