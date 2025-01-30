@@ -1,0 +1,5 @@
+id_subject	code_repository	code_box	code_position	date_received	date_enumerated	origin_biobank	origin_code_repository	origin_code_box	biosample_type	biosample_specimen	biosample_volume	biosample_status
+1	CR123456	X1111111	X1111111-05	1/1/2020	1/1/2019	Example Biobank (TestBB)	REPO000050	C50	healthy	mouth	100	active
+2	CR123456	X1111111	X1111111-06	2/1/2020	2/1/2019	Example Biobank (TestBB)	REPO000051	C51	healthy	throat	100	active
+3	CR123456	X1111111	X1111111-07	3/1/2020	3/1/2019	Example Biobank (TestBB)	REPO000052	C52	healthy	stomach	200	active
+4	CR123456	X1111111	X1111111-08	4/1/2020	4/1/2019	Example Biobank (TestBB)	REPO000053	C53	healthy	liver	300	active
