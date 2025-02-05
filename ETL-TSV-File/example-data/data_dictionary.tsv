@@ -1,0 +1,77 @@
+id	label	ontology
+SNOMED:702451000	Cultured cells	SNOMED
+SNOMED:281560004	Neuroblastoma of brain	SNOMED
+SNOMED:310293008	Mitochondrial antibodies negative	SNOMED
+SNOMED:10292001	Guamians	SNOMED
+NCIT:C28080	Grade 3a	NCIT
+SNOMED:722688002	Malignant epithelial neoplasm (disorder)	SNOMED
+SNOMED:52075006	Congolese	SNOMED
+SNOMED:429559004	Typical angina (disorder)	SNOMED
+NCIT:C93025	Serum Tumor Marker Test	NCIT
+SNOMED:135811000119107	Lewy body dementia with behavioral disturbance (disorder)	SNOMED
+OBI:0002750	Oxford Nanopore MinION	OBI
+SNOMED:81531005	Diabetes mellitus type 2 in obese (disorder)	SNOMED
+SNOMED:365641003	Minor blood groups - finding	SNOMED
+SNOMED:223688001	United States of America	SNOMED
+NCIT:C157179	FGFR1 Mutation Analysis	NCIT
+NCIT:C48709	N1c Stage Finding	NCIT
+SNOMED:369483006	Malignant tumor involving vasa deferentia by direct extension from prostate (disorder)	SNOMED
+SNOMED:10432001	Onge	SNOMED
+SNOMED:276447000	Mite present	SNOMED
+SNOMED:223600005	India	SNOMED
+SNOMED:248152002	Female	SNOMED
+OBI:0002048	Illumina HiSeq 3000	OBI
+SNOMED:782814004	Cultured autograft of skin	SNOMED
+DUO:0000042	general research use	DUO
+SNOMED:407378000	Surgically transgendered transsexual, male-to-female	SNOMED
+NCIT:C15189	biopsy	NCIT
+SNOMED:771439009	14q22q23 microdeletion syndrome	SNOMED
+SNOMED:407377005	Female-to-male transsexual	SNOMED
+NCIT:C64264	Imaging Biomarker Analysis	NCIT
+NCIT:C79426	Cancer Diagnostic or Therapeutic Procedure	NCIT
+SNOMED:254955001	Pituitary carcinoma	SNOMED
+SNOMED:407374003	Transsexual	SNOMED
+SNOMED:258497007	Abscess swab	SNOMED
+SNOMED:31675002	Capillary blood	SNOMED
+SNOMED:702782002	Mitochondrial 1555 A to G mutation positive	SNOMED
+NCIT:C27977	Stage IIIA	NCIT
+SNOMED:23853001	Disorder of the central nervous system	SNOMED
+SNOMED:258500001	Nasopharyngeal swab	SNOMED
+SNOMED:18809007	Meckel's ganglionectomy	SNOMED
+SNOMED:422236008	Agar medium	SNOMED
+NCIT:C84509	Primary Malignant Neoplasm	NCIT
+GENEPIO:0001969	other library source	GENEPIO
+SNOMED:26929004	Alzheimer's disease	SNOMED
+OBI:0002012	PacBio RS II	OBI
+SNOMED:17789004	Papuans	SNOMED
+SNOMED:77502007	Atacamenos	SNOMED
+SNOMED:719046005	12q14 microdeletion syndrome	SNOMED
+NCIT:C48725	T2a Stage Finding	NCIT
+SNOMED:399981008	Neoplasm and/or hamartoma (disorder)	SNOMED
+NCIT:C64263	Laboratory Biomarker Analysis	NCIT
+SNOMED:258603007	Respiratory specimen	SNOMED
+NCIT:C48699	M0 Stage Finding	NCIT
+SNOMED:312991009	Senile dementia of the Lewy body type (disorder)	SNOMED
+SNOMED:310294002	Mitochondrial antibodies positive	SNOMED
+SNOMED:385338007	Specimen from anus obtained by transanal disk excision	SNOMED
+SNOMED:80690008	Degenerative disease of the central nervous system	SNOMED
+SNOMED:734099007	Neuroblastoma of central nervous system	SNOMED
+SNOMED:223498002	Africa	SNOMED
+SNOMED:734336008	Specimen from aorta	SNOMED
+SNOMED:248153007	Male	SNOMED
+SNOMED:113170005	Aymara	SNOMED
+NCIT:C4813	Recurrent Malignant Neoplasm	NCIT
+SNOMED:359642000	Diabetes mellitus type 2 in nonobese (disorder)	SNOMED
+SNOMED:87021001	Mechanical vitrectomy by pars plana approach	SNOMED
+SNOMED:362965005	Disorder of body system (disorder)	SNOMED
+SNOMED:73211009	Diabetes mellitus (disorder)	SNOMED
+SNOMED:76460008	Yanomama	SNOMED
+SNOMED:722600006	Non-amnestic Alzheimer disease	SNOMED
+SNOMED:89026003	Alacaluf	SNOMED
+SNOMED:223713009	Argentina	SNOMED
+SNOMED:194828000	Angina (disorder)	SNOMED
+SNOMED:56265001	Heart disease (disorder)	SNOMED
+SNOMED:12556008	Tamils	SNOMED
+GENEPIO:0001966	genomic source	GENEPIO
+SNOMED:237592006	Abnormality of bombesin secretion	SNOMED
+SNOMED:72019009	Mechanical vitrectomy by posterior approach	SNOMED

@@ -1,0 +1,11 @@
+id,individual_id,biosample_id,run_id,aligner,analysis_date,pipeline_name,pipeline_ref,variant_caller,vcf_sample_id
+UNQ_1-1,UNQ_1-1,UNQ_1-1,UNQ_1-1,bwa-0.7.8,2020-2-15,pipeline 5,Example,SoapSNP,HG00096
+UNQ_1-2,UNQ_1-2,UNQ_1-2,UNQ_1-2,minimap2,2019-3-17,pipeline 1,Example,GATK4.0,HG00097
+UNQ_1-3,UNQ_1-3,UNQ_1-3,UNQ_1-3,minimap2,2018-10-2,pipeline 5,Example,GATK4.0,HG00099
+UNQ_1-4,UNQ_1-4,UNQ_1-4,UNQ_1-4,bwa-0.7.8,2018-11-9,pipeline 5,Example,kmer2snp,HG00100
+UNQ_1-5,UNQ_1-5,UNQ_1-5,UNQ_1-5,bowtie,2019-5-27,pipeline 3,Example,GATK4.0,HG00101
+UNQ_1-6,UNQ_1-6,UNQ_1-6,UNQ_1-6,bwa-0.7.8,2021-11-22,pipeline 1,Example,SoapSNP,HG00102
+UNQ_1-7,UNQ_1-7,UNQ_1-7,UNQ_1-7,bowtie,2018-1-8,pipeline 1,Example,SoapSNP,HG00103
+UNQ_1-8,UNQ_1-8,UNQ_1-8,UNQ_1-8,minimap2,2022-3-6,pipeline 1,Example,GATK4.0,HG00105
+UNQ_1-9,UNQ_1-9,UNQ_1-9,UNQ_1-9,bowtie,2021-2-17,pipeline 2,Example,SoapSNP,HG00106
+UNQ_1-10,UNQ_1-10,UNQ_1-10,UNQ_1-10,bwa-0.7.8,2019-8-13,pipeline 1,Example,SoapSNP,HG00107
