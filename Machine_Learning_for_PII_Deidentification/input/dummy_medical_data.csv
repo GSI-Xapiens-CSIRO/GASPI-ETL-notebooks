@@ -1,0 +1,201 @@
+,id,nama_lengkap,NIK,alamat,no_hp,email,riwayat_penyakit,obat_dikonsumsi
+0,1,Rina Gunawan,1530105808258884,"Jl. Pahlawan No. 66, Palembang",-081036824370,rinagunawan@email.com,Asma,Ibuprofen
+1,2,Rina Pratama,6133313107867502,"Jl. Merdeka No. 84, Palembang",62-861-06103981,rinapratama@email.com,Jantung,Salbutamol
+2,3,Joko Gunawan,6289913001869517,"Jl. Gatot Subroto No. 38, Medan",62816-5143-865,jokogunawan@email.com,Maag,Furosemide
+3,4,Eko Rahman,6469040909168210,"Jl. Ahmad Yani No. 22, Bogor",-811-2804-52483,ekorahman@email.com,Asma,Amlodipine
+4,5,Tini Aminah,3336877105655209,"Jl. Pattimura No. 9, Depok",62-08605785-8552,tiniaminah@email.com,Kolesterol,Metformin
+5,6,Andi Wijaya,9162486701160436,"Jl. Pahlawan No. 5, Palembang",-8140734-584,andiwijaya@email.com,Hipertensi,Amlodipine
+6,7,Eko Gunawan,5383547111728816,"Jl. Diponegoro No. 42, Jakarta",+620883-9634-23,ekogunawan@email.com,Maag,Ranitidin
+7,8,Joko Pratama,8103433108949412,"Jl. Gatot Subroto No. 58, Semarang",6208936488-0559,jokopratama@email.com,Stroke,Ranitidin
+8,9,Hendra Hidayat,9114471606897942,"Jl. Ahmad Yani No. 22, Makassar",+620892-7435-89,hendrahidayat@email.com,Stroke,Ranitidin
+9,10,Tini Hidayat,5366363111145974,"Jl. Gatot Subroto No. 97, Bandung",62-0891-5811-450,tinihidayat@email.com,Migren,Simvastatin
+10,11,Andi Wijaya,5261953102401938,"Jl. Pahlawan No. 22, Bandung",+62-831-004954604,andiwijaya@email.com,Gagal ginjal,Metformin
+11,12,Hendra Hidayat,2167705006005691,"Jl. Raya Bogor No. 67, Surabaya",-08528911-16250,hendrahidayat@email.com,Maag,Omeprazole
+12,13,Rina Hidayat,9290952111678842,"Jl. Ahmad Yani No. 99, Semarang",+620871-1733-677,rinahidayat@email.com,TBC,Paracetamol
+13,14,Siti Putri,1690956804973205,"Jl. Raya Bogor No. 31, Yogyakarta",0895-4101-29843,sitiputri@email.com,Maag,Simvastatin
+14,15,Budi Sari,7125743101849047,"Jl. Thamrin No. 90, Semarang",834-9393-69628,budisari@email.com,Kolesterol,Omeprazole
+15,16,Andi Putri,3125887011436372,"Jl. Ahmad Yani No. 87, Bogor",+62868-250223,andiputri@email.com,Migren,Simvastatin
+16,17,Rina Aminah,1809962708712055,"Jl. Merdeka No. 26, Surabaya",-0886-7085809,rinaaminah@email.com,Diabetes,Omeprazole
+17,18,Tono Pratama,1553212001540893,"Jl. Pahlawan No. 8, Makassar",853764273651,tonopratama@email.com,Maag,Aspirin
+18,19,Joko Putri,5323052910494290,"Jl. Thamrin No. 4, Makassar",8862490-6536,jokoputri@email.com,Diabetes,Simvastatin
+19,20,Andi Putri,5390174112322754,"Jl. Raya Bogor No. 89, Bogor",628225182-09406,andiputri@email.com,Migren,Amlodipine
+20,21,Rina Santoso,2169714810362080,"Jl. Sudirman No. 4, Medan",+628884490-426,rinasantoso@email.com,Migren,Metformin
+21,22,Siti Pratama,1712647112138436,"Jl. Pahlawan No. 28, Depok",-8269814-77,sitipratama@email.com,Kolesterol,Salbutamol
+22,23,Dewi Wijaya,3144597104783607,"Jl. Gatot Subroto No. 86, Palembang",+6208844377-02663,dewiwijaya@email.com,Migren,Ranitidin
+23,24,Eko Putri,2197777106500364,"Jl. Pattimura No. 26, Medan",62-879-131812336,ekoputri@email.com,Migren,Ibuprofen
+24,25,Hendra Putri,9241357111483883,"Jl. Diponegoro No. 13, Makassar",-88910539008,hendraputri@email.com,TBC,Ibuprofen
+25,26,Eko Aminah,2116874510587826,"Jl. Ahmad Yani No. 25, Semarang",620886-6727-84,ekoaminah@email.com,Migren,Amlodipine
+26,27,Tini Gunawan,9275651010822190,"Jl. Thamrin No. 46, Bandung",+62-8176034-42269,tinigunawan@email.com,Diabetes,Furosemide
+27,28,Andi Putri,8274167111286318,"Jl. Pahlawan No. 26, Yogyakarta",0860-71557033,andiputri@email.com,Diabetes,Aspirin
+28,29,Siti Putri,2170651511423387,"Jl. Sudirman No. 29, Surabaya",-08414391-21,sitiputri@email.com,Diabetes,Furosemide
+29,30,Hendra Pratama,5268187107729354,"Jl. Merdeka No. 85, Jakarta",0898-9340-26,hendrapratama@email.com,Stroke,Simvastatin
+30,31,Joko Rahman,5370643002362497,"Jl. Gatot Subroto No. 92, Depok",8816096-7445,jokorahman@email.com,Hipertensi,Salbutamol
+31,32,Dewi Hidayat,3526940210431062,"Jl. Sudirman No. 29, Medan",+620861-343353,dewihidayat@email.com,Asma,Ibuprofen
+32,33,Joko Gunawan,7296817112447098,"Jl. Thamrin No. 44, Bogor",08568826-502,jokogunawan@email.com,Maag,Omeprazole
+33,34,Siti Pratama,1162143112609402,"Jl. Thamrin No. 63, Depok",62-0854015172179,sitipratama@email.com,Hipertensi,Aspirin
+34,35,Joko Gunawan,8220447002330189,"Jl. Merdeka No. 52, Yogyakarta",62-0864-0038195,jokogunawan@email.com,Stroke,Ranitidin
+35,36,Siti Wijaya,2155303012798692,"Jl. Ahmad Yani No. 47, Semarang",0893-558552,sitiwijaya@email.com,Migren,Omeprazole
+36,37,Joko Santoso,1976523005064034,"Jl. Pahlawan No. 67, Surabaya",-862849292,jokosantoso@email.com,Maag,Salbutamol
+37,38,Budi Santoso,3695602403633735,"Jl. Diponegoro No. 87, Surabaya",-0890429714,budisantoso@email.com,Stroke,Metformin
+38,39,Andi Hidayat,2158194811830964,"Jl. Raya Bogor No. 92, Bogor",+62089562549610,andihidayat@email.com,Kolesterol,Amlodipine
+39,40,Tono Pratama,1757705411364245,"Jl. Merdeka No. 89, Palembang",62-828-54919933,tonopratama@email.com,Maag,Salbutamol
+40,41,Eko Gunawan,2104486408034939,"Jl. Ahmad Yani No. 57, Bogor",-875-5879-56,ekogunawan@email.com,Migren,Furosemide
+41,42,Joko Pratama,6154241711095097,"Jl. Thamrin No. 25, Palembang",-842-372432,jokopratama@email.com,Jantung,Simvastatin
+42,43,Rina Wijaya,5134234211952554,"Jl. Thamrin No. 7, Jakarta",8765339-92,rinawijaya@email.com,Diabetes,Metformin
+43,44,Eko Sari,2138344912725200,"Jl. Pahlawan No. 22, Surabaya",62-838-541159766,ekosari@email.com,Migren,Amlodipine
+44,45,Hendra Aminah,9263965703022963,"Jl. Pahlawan No. 94, Makassar",62839-535066,hendraaminah@email.com,Hipertensi,Metformin
+45,46,Rina Santoso,6200504710004280,"Jl. Ahmad Yani No. 22, Semarang",0844-607451,rinasantoso@email.com,Kolesterol,Simvastatin
+46,47,Rina Aminah,5147930408833210,"Jl. Sudirman No. 83, Bogor",889-46696590,rinaaminah@email.com,Stroke,Ibuprofen
+47,48,Tini Gunawan,9234864911603615,"Jl. Pahlawan No. 92, Depok",+62-8649565-16316,tinigunawan@email.com,Stroke,Omeprazole
+48,49,Joko Putri,8103284212722640,"Jl. Thamrin No. 13, Bandung",+620827-2829739,jokoputri@email.com,Jantung,Salbutamol
+49,50,Rina Saputra,2104354810090211,"Jl. Thamrin No. 85, Medan",0888-8560-31847,rinasaputra@email.com,Hipertensi,Metformin
+50,51,Eko Saputra,8239127106665846,"Jl. Gatot Subroto No. 50, Surabaya",62-885-381536,ekosaputra@email.com,TBC,Furosemide
+51,52,Eko Aminah,2171144806170844,"Jl. Thamrin No. 8, Bogor",0829-5448-9288,ekoaminah@email.com,Jantung,Amlodipine
+52,53,Andi Putri,2135750912868301,"Jl. Gatot Subroto No. 92, Makassar",62-0849-362034,andiputri@email.com,Diabetes,Salbutamol
+53,54,Hendra Putri,2118965011513668,"Jl. Diponegoro No. 22, Bandung",+6208102848-386,hendraputri@email.com,TBC,Omeprazole
+54,55,Joko Pratama,1133453105778007,"Jl. Merdeka No. 70, Surabaya",620869430524,jokopratama@email.com,Diabetes,Metformin
+55,56,Andi Gunawan,7381373112372038,"Jl. Pattimura No. 81, Medan",-0828-9584-759,andigunawan@email.com,Maag,Furosemide
+56,57,Tini Hidayat,1454460911181486,"Jl. Thamrin No. 92, Palembang",872-703561,tinihidayat@email.com,Kolesterol,Furosemide
+57,58,Eko Sari,7222363112054290,"Jl. Pattimura No. 75, Semarang",-0821919784,ekosari@email.com,Diabetes,Aspirin
+58,59,Andi Aminah,3158791306273711,"Jl. Gatot Subroto No. 85, Medan",-0861144286331,andiaminah@email.com,TBC,Paracetamol
+59,60,Hendra Santoso,6230910110806827,"Jl. Sudirman No. 64, Palembang",6283507095914,hendrasantoso@email.com,Stroke,Aspirin
+60,61,Rina Sari,1521781211792494,"Jl. Diponegoro No. 83, Jakarta",8264155-64,rinasari@email.com,TBC,Aspirin
+61,62,Dewi Putri,7270781507961936,"Jl. Pahlawan No. 6, Jakarta",62-0868-566037,dewiputri@email.com,TBC,Amlodipine
+62,63,Joko Santoso,5122143112782814,"Jl. Gatot Subroto No. 33, Surabaya",62-0866-2812-876,jokosantoso@email.com,Jantung,Furosemide
+63,64,Hendra Putri,1114197106004453,"Jl. Raya Bogor No. 1, Yogyakarta",62-08438834-76411,hendraputri@email.com,Migren,Furosemide
+64,65,Tini Aminah,5377814611837174,"Jl. Pattimura No. 48, Bogor",+62-8586008-81247,tiniaminah@email.com,Migren,Amlodipine
+65,66,Siti Saputra,1690544712165393,"Jl. Sudirman No. 56, Surabaya",-08128577-0569,sitisaputra@email.com,Hipertensi,Paracetamol
+66,67,Rina Putri,5138654208434142,"Jl. Diponegoro No. 74, Surabaya",0817-001125469,rinaputri@email.com,Asma,Furosemide
+67,68,Hendra Gunawan,2143481804155035,"Jl. Pattimura No. 96, Medan",62-8390763-116,hendragunawan@email.com,Gagal ginjal,Amlodipine
+68,69,Dewi Aminah,5296277112302270,"Jl. Pahlawan No. 70, Makassar",-817-9875352,dewiaminah@email.com,Gagal ginjal,Amlodipine
+69,70,Siti Rahman,6289913012489187,"Jl. Pahlawan No. 22, Jakarta",-0872-6574-83406,sitirahman@email.com,Kolesterol,Paracetamol
+70,71,Siti Saputra,6263057108315933,"Jl. Thamrin No. 79, Makassar",8970795-62,sitisaputra@email.com,Stroke,Ranitidin
+71,72,Andi Gunawan,5139964512977335,"Jl. Merdeka No. 43, Bogor",62-8900507-92,andigunawan@email.com,TBC,Aspirin
+72,73,Hendra Aminah,1673783105482268,"Jl. Ahmad Yani No. 34, Palembang",-08680903-56,hendraaminah@email.com,Kolesterol,Amlodipine
+73,74,Joko Saputra,6293730902816764,"Jl. Thamrin No. 4, Surabaya",-0826195880763,jokosaputra@email.com,Jantung,Aspirin
+74,75,Eko Wijaya,3442022610817966,"Jl. Pattimura No. 40, Bandung",620866-570249,ekowijaya@email.com,Maag,Omeprazole
+75,76,Eko Santoso,2183410105208108,"Jl. Ahmad Yani No. 50, Makassar",62-852-010591385,ekosantoso@email.com,TBC,Paracetamol
+76,77,Siti Gunawan,2106094411637008,"Jl. Ahmad Yani No. 67, Makassar",0846-0871-097,sitigunawan@email.com,Asma,Salbutamol
+77,78,Andi Rahman,8289063012401415,"Jl. Raya Bogor No. 86, Bandung",8448045-5672,andirahman@email.com,Diabetes,Furosemide
+78,79,Tini Pratama,7647767011257677,"Jl. Pattimura No. 31, Depok",-0893-1921-76,tinipratama@email.com,TBC,Paracetamol
+79,80,Rina Santoso,7170124902419981,"Jl. Thamrin No. 68, Medan",+62081354744775,rinasantoso@email.com,Maag,Salbutamol
+80,81,Hendra Pratama,2150112811131383,"Jl. Pattimura No. 90, Palembang",620821-2464221,hendrapratama@email.com,Hipertensi,Salbutamol
+81,82,Joko Saputra,2126924207922652,"Jl. Merdeka No. 92, Palembang",62834341472,jokosaputra@email.com,Migren,Aspirin
+82,83,Eko Santoso,1965097112837676,"Jl. Merdeka No. 16, Jakarta",+620889-7248440,ekosantoso@email.com,Kolesterol,Salbutamol
+83,84,Tono Gunawan,3470890107296048,"Jl. Gatot Subroto No. 87, Depok",62-0862-4695-716,tonogunawan@email.com,Jantung,Paracetamol
+84,85,Eko Saputra,2129184703492506,"Jl. Thamrin No. 11, Palembang",0826-524254165,ekosaputra@email.com,Diabetes,Ibuprofen
+85,86,Andi Sari,9131967105859655,"Jl. Gatot Subroto No. 63, Surabaya",+62-0833-0137-297,andisari@email.com,Hipertensi,Amlodipine
+86,87,Tono Rahman,2159734509722524,"Jl. Sudirman No. 23, Bandung",860026251648,tonorahman@email.com,Kolesterol,Amlodipine
+87,88,Tono Saputra,2127631003219063,"Jl. Raya Bogor No. 16, Bandung",0882-2020-0060,tonosaputra@email.com,Asma,Omeprazole
+88,89,Tono Sari,2144980210998684,"Jl. Diponegoro No. 60, Semarang",-0854-7825-75,tonosari@email.com,Diabetes,Omeprazole
+89,90,Siti Aminah,7105023112856410,"Jl. Diponegoro No. 16, Palembang",620854147764744,sitiaminah@email.com,Maag,Amlodipine
+90,91,Rina Sari,6531925211862583,"Jl. Gatot Subroto No. 52, Jakarta",+628450696-991,rinasari@email.com,Hipertensi,Salbutamol
+91,92,Siti Pratama,3686612112098345,"Jl. Ahmad Yani No. 10, Palembang",+6208738517-2612,sitipratama@email.com,Hipertensi,Aspirin
+92,93,Rina Santoso,2197573108245124,"Jl. Ahmad Yani No. 41, Palembang",-853-532907,rinasantoso@email.com,Diabetes,Omeprazole
+93,94,Dewi Rahman,9268791101853217,"Jl. Diponegoro No. 25, Yogyakarta",0848-966086552,dewirahman@email.com,Asma,Paracetamol
+94,95,Tono Santoso,1517960212597213,"Jl. Thamrin No. 30, Yogyakarta",08337189-591,tonosantoso@email.com,Asma,Omeprazole
+95,96,Hendra Aminah,3523850111657863,"Jl. Diponegoro No. 64, Jakarta",62-08961822-969,hendraaminah@email.com,Hipertensi,Furosemide
+96,97,Tono Aminah,9146391009771455,"Jl. Gatot Subroto No. 15, Jakarta",870-3031491,tonoaminah@email.com,TBC,Aspirin
+97,98,Budi Gunawan,9173582710734611,"Jl. Pahlawan No. 37, Depok",62871-5897626,budigunawan@email.com,TBC,Ibuprofen
+98,99,Hendra Pratama,2136455309431143,"Jl. Gatot Subroto No. 8, Bandung",62-0828-6300-561,hendrapratama@email.com,Migren,Simvastatin
+99,100,Budi Sari,3278710810705365,"Jl. Raya Bogor No. 47, Jakarta",-0821-16136712,budisari@email.com,Diabetes,Omeprazole
+100,101,Tini Hidayat,7362122106122098,"Jl. Thamrin No. 44, Bogor",620878-1886-736,tinihidayat@email.com,Maag,Ibuprofen
+101,102,Rina Rahman,5338742811872493,"Jl. Sudirman No. 25, Bogor",+620894-0748142,rinarahman@email.com,Migren,Ranitidin
+102,103,Dewi Pratama,6514467005672484,"Jl. Gatot Subroto No. 51, Jakarta",-8923929405,dewipratama@email.com,Maag,Aspirin
+103,104,Joko Pratama,5157250706813562,"Jl. Pahlawan No. 78, Yogyakarta",0828-6022-680,jokopratama@email.com,Migren,Simvastatin
+104,105,Hendra Putri,2145190312790698,"Jl. Raya Bogor No. 16, Bogor",628544831-281,hendraputri@email.com,Maag,Omeprazole
+105,106,Siti Hidayat,2149623012202875,"Jl. Thamrin No. 72, Bogor",836285687966,sitihidayat@email.com,TBC,Salbutamol
+106,107,Dewi Hidayat,9244420901092351,"Jl. Pahlawan No. 33, Surabaya",62-08910825-51,dewihidayat@email.com,Kolesterol,Simvastatin
+107,108,Joko Wijaya,6533147011297771,"Jl. Thamrin No. 2, Surabaya",0858-7939-51122,jokowijaya@email.com,TBC,Salbutamol
+108,109,Andi Gunawan,1177193008855690,"Jl. Gatot Subroto No. 78, Makassar",08907993-56,andigunawan@email.com,Hipertensi,Amlodipine
+109,110,Tini Pratama,5179055312509811,"Jl. Pattimura No. 40, Bogor",-08909461893,tinipratama@email.com,Stroke,Amlodipine
+110,111,Siti Sari,2158907112259184,"Jl. Pattimura No. 71, Bogor",+62862-4591-832,sitisari@email.com,Gagal ginjal,Metformin
+111,112,Hendra Putri,5390895910392929,"Jl. Pattimura No. 29, Bogor",-8615743-97539,hendraputri@email.com,Asma,Paracetamol
+112,113,Joko Santoso,5333335411216727,"Jl. Merdeka No. 16, Medan",-894-9006-2830,jokosantoso@email.com,Stroke,Furosemide
+113,114,Andi Gunawan,8141227103159505,"Jl. Thamrin No. 43, Yogyakarta",-8175707426,andigunawan@email.com,Jantung,Simvastatin
+114,115,Budi Saputra,9101023111185213,"Jl. Diponegoro No. 91, Bandung",628706396-318,budisaputra@email.com,Diabetes,Paracetamol
+115,116,Dewi Rahman,6576256612563464,"Jl. Pahlawan No. 49, Medan",0864-70903772,dewirahman@email.com,Stroke,Ibuprofen
+116,117,Joko Saputra,2198586410286203,"Jl. Gatot Subroto No. 18, Bogor",8268441-15,jokosaputra@email.com,Gagal ginjal,Ranitidin
+117,118,Budi Hidayat,7290886112129236,"Jl. Ahmad Yani No. 32, Makassar",-833303073,budihidayat@email.com,Migren,Paracetamol
+118,119,Tono Aminah,5174396812838449,"Jl. Diponegoro No. 5, Surabaya",8299213-40563,tonoaminah@email.com,Kolesterol,Aspirin
+119,120,Hendra Hidayat,9291983005485333,"Jl. Pattimura No. 9, Semarang",62-820-7762-95,hendrahidayat@email.com,Maag,Paracetamol
+120,121,Dewi Pratama,9134077111222740,"Jl. Pahlawan No. 16, Medan",62-0896-5832326,dewipratama@email.com,Hipertensi,Ibuprofen
+121,122,Budi Hidayat,3513295808526499,"Jl. Ahmad Yani No. 8, Yogyakarta",0889-07713200,budihidayat@email.com,Kolesterol,Aspirin
+122,123,Joko Putri,3307803111683631,"Jl. Pattimura No. 49, Makassar",8155021-977,jokoputri@email.com,Kolesterol,Furosemide
+123,124,Tini Hidayat,2103713011517299,"Jl. Merdeka No. 74, Jakarta",+620827-840726399,tinihidayat@email.com,Gagal ginjal,Simvastatin
+124,125,Andi Putri,2124104812810977,"Jl. Raya Bogor No. 62, Yogyakarta",0880-104264704,andiputri@email.com,Gagal ginjal,Aspirin
+125,126,Budi Hidayat,7539342808594287,"Jl. Thamrin No. 40, Depok",0862728882,budihidayat@email.com,Diabetes,Amlodipine
+126,127,Joko Santoso,9203323111064003,"Jl. Merdeka No. 65, Palembang",0896-3263-980,jokosantoso@email.com,Diabetes,Furosemide
+127,128,Tini Gunawan,8145812910990307,"Jl. Diponegoro No. 15, Palembang",-08482155-21,tinigunawan@email.com,Migren,Paracetamol
+128,129,Eko Saputra,2115236812409044,"Jl. Merdeka No. 36, Jakarta",+620861-856882,ekosaputra@email.com,Maag,Omeprazole
+129,130,Eko Pratama,5352765312257564,"Jl. Pahlawan No. 35, Bogor",0858-7563-28668,ekopratama@email.com,Stroke,Simvastatin
+130,131,Dewi Saputra,8280214109787536,"Jl. Pattimura No. 84, Depok",+62-08285940901,dewisaputra@email.com,Maag,Simvastatin
+131,132,Rina Rahman,2191395401237544,"Jl. Ahmad Yani No. 28, Bogor",62-0870-11019675,rinarahman@email.com,Kolesterol,Furosemide
+132,133,Eko Saputra,1199513111075550,"Jl. Gatot Subroto No. 82, Bogor",-085274496745,ekosaputra@email.com,Migren,Furosemide
+133,134,Tini Wijaya,2108956505795647,"Jl. Diponegoro No. 9, Palembang",62-0867-8895-83,tiniwijaya@email.com,Kolesterol,Aspirin
+134,135,Joko Aminah,1801663012985673,"Jl. Merdeka No. 22, Semarang",62-0820-482852645,jokoaminah@email.com,Migren,Aspirin
+135,136,Andi Pratama,2193251612528593,"Jl. Thamrin No. 56, Makassar",628979604-053,andipratama@email.com,Hipertensi,Ibuprofen
+136,137,Andi Hidayat,3422671711565372,"Jl. Raya Bogor No. 74, Surabaya",+628796191-675,andihidayat@email.com,Migren,Omeprazole
+137,138,Siti Gunawan,5277396301299123,"Jl. Ahmad Yani No. 59, Medan",825-6891-67,sitigunawan@email.com,Maag,Ibuprofen
+138,139,Joko Aminah,5380465508666163,"Jl. Diponegoro No. 92, Semarang",62870-4871-1319,jokoaminah@email.com,Asma,Metformin
+139,140,Hendra Saputra,8221722312776192,"Jl. Pahlawan No. 64, Bandung",6208195520-5025,hendrasaputra@email.com,Hipertensi,Simvastatin
+140,141,Tono Sari,6112960211505303,"Jl. Pahlawan No. 72, Bandung",+62-08624389-296,tonosari@email.com,Jantung,Ranitidin
+141,142,Joko Wijaya,8271025811776261,"Jl. Gatot Subroto No. 43, Bogor",62-08246119154,jokowijaya@email.com,Asma,Aspirin
+142,143,Hendra Putri,2167467111278745,"Jl. Raya Bogor No. 91, Makassar",8589017-734,hendraputri@email.com,Asma,Metformin
+143,144,Andi Sari,5168925010365494,"Jl. Merdeka No. 13, Depok",6208668255-714,andisari@email.com,TBC,Metformin
+144,145,Hendra Rahman,2158760712535363,"Jl. Merdeka No. 6, Semarang",+62824-9847-33304,hendrarahman@email.com,Maag,Furosemide
+145,146,Dewi Aminah,5139303112100224,"Jl. Ahmad Yani No. 63, Surabaya",+620818-999377,dewiaminah@email.com,Diabetes,Paracetamol
+146,147,Hendra Aminah,5203502512532753,"Jl. Gatot Subroto No. 40, Bandung",62-8592266-3479,hendraaminah@email.com,Maag,Simvastatin
+147,148,Andi Gunawan,1589171001419764,"Jl. Ahmad Yani No. 60, Semarang",+62-0883-8705-4322,andigunawan@email.com,Jantung,Amlodipine
+148,149,Tini Aminah,3438727003805419,"Jl. Raya Bogor No. 57, Yogyakarta",+6208546672295,tiniaminah@email.com,Maag,Aspirin
+149,150,Eko Putri,5362733006876990,"Jl. Raya Bogor No. 40, Semarang",867-4517-94,ekoputri@email.com,Diabetes,Paracetamol
+150,151,Rina Aminah,3678370612147491,"Jl. Sudirman No. 99, Semarang",+628825192-085,rinaaminah@email.com,TBC,Omeprazole
+151,152,Eko Aminah,1941887008556729,"Jl. Gatot Subroto No. 79, Semarang",+62-0890-911005224,ekoaminah@email.com,Hipertensi,Ranitidin
+152,153,Tini Rahman,8191863105969539,"Jl. Pahlawan No. 87, Depok",62-845-4075-09,tinirahman@email.com,Maag,Simvastatin
+153,154,Siti Rahman,7193057110721016,"Jl. Raya Bogor No. 78, Makassar",-0854-590605,sitirahman@email.com,Gagal ginjal,Metformin
+154,155,Eko Sari,2129054412019332,"Jl. Ahmad Yani No. 64, Makassar",62-08545584-7176,ekosari@email.com,Gagal ginjal,Ibuprofen
+155,156,Budi Sari,2105973006080056,"Jl. Merdeka No. 61, Medan",62-851-678031,budisari@email.com,Migren,Ibuprofen
+156,157,Siti Wijaya,5389831009412120,"Jl. Thamrin No. 16, Depok",62-08426002-49,sitiwijaya@email.com,Stroke,Furosemide
+157,158,Rina Aminah,1276610702182883,"Jl. Diponegoro No. 28, Yogyakarta",827-31745627,rinaaminah@email.com,Diabetes,Paracetamol
+158,159,Rina Santoso,2155910905752785,"Jl. Merdeka No. 3, Makassar",08743019-853,rinasantoso@email.com,Diabetes,Aspirin
+159,160,Budi Rahman,8289666611890027,"Jl. Merdeka No. 75, Bogor",62-855284170,budirahman@email.com,TBC,Aspirin
+160,161,Dewi Sari,6413047112615243,"Jl. Ahmad Yani No. 73, Yogyakarta",+620871-778760,dewisari@email.com,Jantung,Paracetamol
+161,162,Andi Pratama,7691351103890311,"Jl. Gatot Subroto No. 74, Jakarta",+6208456382-3250,andipratama@email.com,Gagal ginjal,Metformin
+162,163,Dewi Gunawan,6422684212551350,"Jl. Merdeka No. 10, Medan",-871-483055876,dewigunawan@email.com,Diabetes,Salbutamol
+163,164,Rina Pratama,9293764810047885,"Jl. Raya Bogor No. 32, Yogyakarta",+62-849-2659446,rinapratama@email.com,Gagal ginjal,Amlodipine
+164,165,Budi Rahman,5272823008429392,"Jl. Sudirman No. 93, Surabaya",+62-0884-2364-311,budirahman@email.com,Jantung,Salbutamol
+165,166,Joko Pratama,6192800210568799,"Jl. Pahlawan No. 51, Medan",62850-711353,jokopratama@email.com,Gagal ginjal,Paracetamol
+166,167,Siti Rahman,8122800711692198,"Jl. Thamrin No. 91, Palembang",0892656869407,sitirahman@email.com,Jantung,Salbutamol
+167,168,Eko Putri,1253587110047082,"Jl. Sudirman No. 1, Yogyakarta",620813631583927,ekoputri@email.com,Stroke,Paracetamol
+168,169,Tini Saputra,6420013004704405,"Jl. Gatot Subroto No. 27, Bandung",-864518021,tinisaputra@email.com,Hipertensi,Metformin
+169,170,Eko Wijaya,6455045611178125,"Jl. Thamrin No. 31, Medan",8962778166,ekowijaya@email.com,Diabetes,Paracetamol
+170,171,Dewi Santoso,1111723107213965,"Jl. Pahlawan No. 89, Medan",859-155875374,dewisantoso@email.com,Migren,Ranitidin
+171,172,Hendra Hidayat,9226587103992430,"Jl. Thamrin No. 80, Bandung",-8120334-1845,hendrahidayat@email.com,Asma,Omeprazole
+172,173,Dewi Saputra,7234521606458721,"Jl. Thamrin No. 100, Makassar",-08982053-256,dewisaputra@email.com,Diabetes,Amlodipine
+173,174,Tono Aminah,5202027010849850,"Jl. Merdeka No. 95, Semarang",-816653831,tonoaminah@email.com,Asma,Metformin
+174,175,Joko Rahman,1754926704838689,"Jl. Pattimura No. 95, Semarang",-0863-1457-4891,jokorahman@email.com,Hipertensi,Simvastatin
+175,176,Dewi Santoso,9169047111753502,"Jl. Thamrin No. 3, Jakarta",620849-73958159,dewisantoso@email.com,Gagal ginjal,Amlodipine
+176,177,Tono Wijaya,2174730103827228,"Jl. Gatot Subroto No. 66, Yogyakarta",+62853-191119049,tonowijaya@email.com,Hipertensi,Salbutamol
+177,178,Tono Gunawan,7259457103624997,"Jl. Diponegoro No. 92, Medan",08758754-793,tonogunawan@email.com,Jantung,Ranitidin
+178,179,Tini Hidayat,5170777110147845,"Jl. Diponegoro No. 42, Semarang",081859091065,tinihidayat@email.com,Maag,Omeprazole
+179,180,Rina Putri,6215660102912473,"Jl. Thamrin No. 46, Bandung",-825983698,rinaputri@email.com,Maag,Paracetamol
+180,181,Tini Hidayat,1624160111143724,"Jl. Diponegoro No. 91, Depok",-859-3061-071,tinihidayat@email.com,Hipertensi,Omeprazole
+181,182,Andi Putri,6250184610148643,"Jl. Sudirman No. 29, Yogyakarta",62891-7329-7125,andiputri@email.com,Asma,Simvastatin
+182,183,Siti Sari,5243050912208038,"Jl. Raya Bogor No. 62, Jakarta",08476395-8071,sitisari@email.com,TBC,Ibuprofen
+183,184,Eko Sari,6126580310169788,"Jl. Ahmad Yani No. 6, Makassar",8131909-84345,ekosari@email.com,Gagal ginjal,Omeprazole
+184,185,Joko Sari,1761044202190570,"Jl. Ahmad Yani No. 89, Surabaya",0840-6908-135,jokosari@email.com,Kolesterol,Furosemide
+185,186,Tini Hidayat,3417203012351906,"Jl. Pattimura No. 17, Yogyakarta",0872-5838-2627,tinihidayat@email.com,Stroke,Paracetamol
+186,187,Hendra Pratama,6486827102219783,"Jl. Gatot Subroto No. 52, Bandung",62-0820-304085258,hendrapratama@email.com,Kolesterol,Amlodipine
+187,188,Tono Pratama,2147730311795041,"Jl. Raya Bogor No. 94, Medan",628159408-110,tonopratama@email.com,Migren,Furosemide
+188,189,Andi Gunawan,3312764910622776,"Jl. Gatot Subroto No. 49, Yogyakarta",62-81661862768,andigunawan@email.com,Gagal ginjal,Simvastatin
+189,190,Budi Hidayat,1350846511244014,"Jl. Sudirman No. 72, Medan",-0888-492373,budihidayat@email.com,Stroke,Furosemide
+190,191,Hendra Sari,6553734604908056,"Jl. Sudirman No. 66, Palembang",+62-08694573-14,hendrasari@email.com,Kolesterol,Ranitidin
+191,192,Rina Santoso,5251491312371077,"Jl. Ahmad Yani No. 41, Surabaya",-0835628749,rinasantoso@email.com,Migren,Ranitidin
+192,193,Tini Aminah,1220840106700776,"Jl. Pahlawan No. 75, Semarang",-0876-3895-08,tiniaminah@email.com,Jantung,Salbutamol
+193,194,Tini Wijaya,9261676512499721,"Jl. Merdeka No. 68, Palembang",62817-037792,tiniwijaya@email.com,Stroke,Metformin
+194,195,Dewi Pratama,1369874812100742,"Jl. Thamrin No. 54, Medan",620874684171832,dewipratama@email.com,Migren,Omeprazole
+195,196,Tini Wijaya,5284465810445319,"Jl. Raya Bogor No. 99, Makassar",0813-99140660,tiniwijaya@email.com,Hipertensi,Metformin
+196,197,Eko Saputra,2147677012863707,"Jl. Gatot Subroto No. 61, Bogor",8406969-933,ekosaputra@email.com,Gagal ginjal,Simvastatin
+197,198,Dewi Putri,6292671901383876,"Jl. Gatot Subroto No. 27, Semarang",620856-8975-94,dewiputri@email.com,Stroke,Amlodipine
+198,199,Dewi Aminah,6410754406500409,"Jl. Merdeka No. 52, Depok",+620831616319374,dewiaminah@email.com,Asma,Paracetamol
+199,200,Eko Hidayat,2102376908650095,"Jl. Pahlawan No. 37, Depok",-0822-1408-6294,ekohidayat@email.com,Jantung,Ranitidin
