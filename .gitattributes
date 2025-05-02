@@ -1,0 +1,2 @@
+data/BGSI[[:space:]]synthetic[[:space:]]data/chr22_SNV_INDEL_SV_phased.vcf.gz filter=lfs diff=lfs merge=lfs -text
+data/BGSI[[:space:]]synthetic[[:space:]]data/chr22_SNV_INDEL_SV_phased.vcf.gz.csi filter=lfs diff=lfs merge=lfs -text
