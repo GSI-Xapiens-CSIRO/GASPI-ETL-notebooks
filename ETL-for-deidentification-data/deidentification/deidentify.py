@@ -1,8 +1,34 @@
+"""
+Notebook version of the deidentification pipeline.
+
+Logic ported 1:1 from the application's `deidentification.py`, with the
+following intentionally stripped out (not relevant for notebook experiments):
+  - S3 download/upload
+  - DynamoDB status / error logging
+  - CloudWatch marker prints
+  - argparse CLI entrypoint
+  - BAM/SAM support (notebook input is typically VCF/BCF or small metadata)
+  - file_validation (python-magic + htsfile)
+
+Dependencies:
+  - bcftools / htslib binary on PATH (for VCF/BCF processing)
+  - Python package: ijson  (pip install ijson)
+
+Usage (from the notebook):
+    from deidentification.deidentify import deidentify
+    deidentify("PII.json")
+
+Output is written next to the input as `deidentified_<filename>`.
+"""
+
 import csv
+import io
 import json
 import os
 import re
 import subprocess
+
+import ijson
 
 
 ANNOTATION_PATH = "annotation.vcf.gz"
@@ -54,19 +80,83 @@ META_STRUCTURED_WHITELIST = {
 
 PII_PATTERNS = [
     r"\b[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b",  # Email
-    r"(?<!\.)\(?(?:\+62\)?[- ]?|\b0)(?:\d\)?[- ]?){1,3}\d{3,4}[- ]?\d{3,4}\b",  # Phone number
-    r"(?<!SNOMED:)\b\d{16}\b",  # NIK
-    r"\b(?:[A-Z]{1,2})\s?\d{1,4}\s?[A-Z]{0,3}\b",  # License plate
-    r"\b(?:(?:Jl\.|Jalan|Desa|Kelurahan|Kecamatan|Kabupaten|Provinsi|Jakarta|Kode\s?Pos)(?:\s?(?:\d{5}|RT\s?\d{1,2}/RW\s?\d{1,2}|[A-Z^RT]+[a-z]*(?:\.\s?\d+)?),?)+,?\s?)+\b",  # Address
-    r"\b(?:Dr\.|Prof\.|Ir\.|Haji|Hajjah|Putra|Putri|Sri|Adi)(?:\s[A-Z][a-z]+){1,2}\b",  # Name
+
+    # Phone (HP Indonesia)
+    r"\b(?:\+?62[\s.-]*|0)8[1-9](?:[\s.-]?\d){7,10}\b",
+
+    # Landline with area code
+    r"\b0(?:\((?:2[1-9]|[3-9]\d)\)|(?:2[1-9]|[3-9]\d))(?:[\s.-]?\d){6,8}\b",
+
+    # NIK (without anchor, can be used for SIM also)
+    r"\b(1[1-9]|21|[37][1-6]|5[1-3]|6[1-5]|[89][12])\d{2}\d{2}([04][1-9]|[1256][0-9]|[37][01])(0[1-9]|1[0-2])\d{2}\d{4}\b",
+
+    r"\b[A-Z]{1,2} \d{1,4}( [A-Z]{1,3})?\b",  # License plate with enforced spaces
+    r"\b(?:[A-Z]\d{6,7}[A-Z]?|[A-Z]{2}\d{6,7})\b",  # Passport
+    r"\b\d{13}\b",  # BPJS
+
+    r"\b\d{2}\.?\d{3}\.?\d{3}\.?\d{1}-?\d{3}\.?\d{3}\b",  # NPWP 15 digit
+    r"\b0\d{15}\b",  # NPWP 16 digit for foreigners
+
+    # Lat/Long pair
+    r"(?<!\w)[+-]?(?:90(?:\.0+)?|[0-8]?\d(?:\.\d+)?)(?:\s*,\s*|\s+)[+-]?(?:180(?:\.0+)?|1[0-7]\d(?:\.\d+)?|[0-9]?\d(?:\.\d+)?)(?!\w)",
+
+    # Single lat/long value
+    r"(?<!\w)[+-]?(?:90(?:\.0+)?|[0-8]?\d)\.\d{4,}(?!\w)|(?<!\w)[+-]?(?:180(?:\.0+)?|1[0-7]\d|[0-9]?\d)\.\d{4,}(?!\w)",
 ]
-ANY_PII_PATTERN = re.compile("|".join(f"(?:{pattern})" for pattern in PII_PATTERNS))
+CASE_INSENSITIVE_PII_PATTERNS = [
+    r"\b(?:(?:Jl\.|Jalan|Desa|Kelurahan|Kecamatan|Kab.|Kab|Kabupaten|Kec|Kec.|Kecamatan|Prov.|Provinsi|Prov|Kode\s?Pos)(?:\s?(?:\d{5}|RT\s?\d{1,2}/RW\s?\d{1,2}|[A-Z^RT]+[a-z]*(?:\.\s?\d+)?),?)+,?\s?)+\b",  # Address
+    r"\b(?:Dr\.|Prof\.|Ir\.|Haji|Hajjah|Putra|Putri|Sri|Adi|Raden|Ny|H\.|Hj\.|Kiai|Kyai|K\.H\.|KH\.|Gus|Ning|Ir\.|Drs\.|Dra\.|Sultan|Pangeran|R\.M\.|R\.A\.|R\.Ay\.|Rr\.|Ust\.|Ustaz|Ustadz|Bapak|Bpk\.|Iibu|Saudara|Saudari|Sdr\.|Tuan|Tn\.|Nona|Nn\.|Dokter|Drg\.|Prof\.|Teungku|Teuku|Tgk\.|Datuk|Datuak|Tengku|Kemas|Nyimas|Kiagus|Nyanyu|Tubagus|Ratu|Rd\.|Rara|Roro|Anak Agung|Gusti|Dewa|Desak|Lalu|Umbu|ADaeng|Puang|Kapitan|Adi|Daeng|Karaeng|Arung|Opu|Petta|Latu|Upu)(?:\s[A-Z][a-z]+){1,2}\b",  # Name
+]
+ANY_PII_PATTERN = re.compile(
+    "|".join(
+        f"(?:{pattern})"
+        for pattern in PII_PATTERNS
+        + [f"(?i:{pattern})" for pattern in CASE_INSENSITIVE_PII_PATTERNS]
+    )
+)
+INDIVIDUAL_MARKER_FIELDS = {
+    "age",
+    "umur",
+    "ethnicity",
+    "etnis",
+    "karyotypicsex",
+    "sex",
+    "jenis kelamin",
+    "jenis_kelamin",
+}  # What we use to know we can use NAME_PATTERN to remove any name fields
+NAME_PATTERN = re.compile(
+    r"(?i)(?:^|[_\s])(?:name|nama|marga|initial|inisial|"
+    r"nama_lengkap|fullname|full_name|nama_depan|nama_belakang|first_name|last_name|nama_ibu|nama ibu|nama_ayah|nama ayah|nama_pasangan|nama pasangan|nama_wali|nama wali|wali|kontak_darurat|kontak darurat|emergency_contact|gelar|title)(?:$|[_\s])"
+)  # Very broad - need to know we're dealing with an individual to use this
+METADATA_KEY_PII_PATTERNS = [
+    r"(?i)\b(?:(?:full|first|last|middle|given|family|sur)[_ -]?name|nama(?:[_ -](?:lengkap|depan|belakang|tengah))?|nama|surname)\b",
+    r"(?i)\b(?:(?:plate|license|vehicle|registration|number)_(?:plate|number|nopol|polisi|registrasi)|(?:nomor|plat)_(?:plat|nomor|polisi|registrasi)|nopol(?:_id)?|vehicle_nopol|registration_nopol|plat_number|plateno)\b",
+    r"(?i)\b(?:dob|date[_ -]*of[_ -]*birth|birth[_ -]*date|birthdate|tanggal[_ -]*(?:lahir|lhr)|tgl[_ -]*(?:lahir|lhr))\b",
+    r"(?i)\b(?:birth[_ -]*place|place[_ -]*of[_ -]*birth|tempat[_ -]*(?:lahir|lhr)|tmp[_ -]*(?:lahir|lhr))\b",
+    r"(?i)\b(?:lokasi)\b",
+    r"(?i)\b(?:alamat(?:[_ -]*(?:lengkap|rumah|domisili|ktp|tempat[_ -]*tinggal|tinggal))?|tempat[_ -]*tinggal|tinggal|domisili|rumah|address|full[_ -]*address|home[_ -]*address|domicile|home)\b",
+    r"(?i)\b(?:gps|koordinat|coordinate|coordinates|latitude|lat|longitude|lon|lng)\b",
+    r"(?i)\b(?:agama|religion|kepercayaan)\b",
+    r"(?i)\b(?:(?:no|nomor|nomer)[_ -]*(?:telepon|telfon|telphone|telephone|phone|hp|handphone|ponsel|mobile|whatsapp|wa)|(?:telepon|telfon|telphone|telephone|phone|hp|handphone|ponsel|mobile|whatsapp|wa))\b",
+    r"(?i)\b(?:(?:no|nomor|nomer)[_ -]*sim|sim)\b",
+    r"(?i)\b(?:mrn|medical[_ -]*record[_ -]*number|nomor[_ -]*rekap[_ -]*medis|no[_ -]*rm|nomor[_ -]*rm|no[_ -]*mr|nomor[_ -]*mr|mr[_ -]*number)\b",
+]
+
+CONTROLLED_TERM_PREFIXES = (
+    "ICD9CM", "ICD10", "LOINC", "SNOMED", "UCUM", "KFA", "NCIT", "KEMKES"
+)
+
+CONTROLLED_TERM_PATTERN = re.compile(
+    rf"^(?:{'|'.join(CONTROLLED_TERM_PREFIXES)}):\S+$"
+)
 
 GENOMIC_SUFFIX_TYPES = {
     ".bcf": "u",
     ".bcf.gz": "b",
+    ".bcf.bgz": "b",
     ".vcf": "v",
     ".vcf.gz": "z",
+    ".vcf.bgz": "z",
 }
 
 METADATA_SUFFIXES = [
@@ -76,12 +166,10 @@ METADATA_SUFFIXES = [
     ".txt",
 ]
 
-# Check if the script is running in AWS Lambda.
-# EC2 instances don't have as much space in tmp
 WORKING_DIR = os.getcwd()
 
 
-class BcftoolsError(Exception):
+class ProcessError(Exception):
     def __init__(self, message, stdout, stderr, returncode, process_args):
         self.message = message
         self.stdout = stdout
@@ -118,52 +206,68 @@ class CheckedProcess:
         stdout, stderr = self.process.communicate()
         returncode = self.process.returncode
         if returncode != 0:
-            raise BcftoolsError(
+            raise ProcessError(
                 self.error_message, stdout, stderr, returncode, self.process.args
             )
 
 
 class Viewer:
-    def __init__(self, file_path):
+    def __init__(self, process_args, error_message):
         self.started = False
-        self.file_path = file_path
+        self.process_args = process_args
+        self.error_message = error_message
         self.view_process = None
+        self.lines = []
+
+    def _print(self, lines):
+        if not self.started:
+            self._start()
+        try:
+            print("\n".join(lines), file=self.view_process.stdin)
+        except BrokenPipeError:
+            self.view_process.check()
+            # If that's not the cause, raise for further inspection
+            raise
 
     def _start(self):
         self.view_process = CheckedProcess(
-            args=[
-                "bcftools",
-                "view",
-                "--no-version",
-                "--output-type",
-                "z",
-                "--output",
-                self.file_path,
-                "--write-index",
-            ],
+            args=self.process_args,
             stdin=subprocess.PIPE,
-            error_message="Creating deidentified records failed",
+            error_message=self.error_message,
         )
         self.started = True
 
-    def ingest(self, lines):
-        if not self.started:
-            self._start()
-        print("\n".join(lines), file=self.view_process.stdin)
+    def ingest(self, new_lines):
+        self.lines.extend(new_lines)
+        if len(self.lines) > MAX_LINES_PER_PRINT:
+            self._print(self.lines)
+            self.lines.clear()
 
     def close(self):
+        if self.lines:
+            self._print(self.lines)
         if self.started:
-            # self.view_process.stdin.close()
             self.view_process.check()
 
 
 def anonymise(input_string):
+    if CONTROLLED_TERM_PATTERN.match(input_string):
+        return input_string
     return ANY_PII_PATTERN.sub(MASK, input_string)
+
+
+def remove_nested_angle_brackets(header_line):
+    match = re.search(r"^(##\w+)=<(.+)>$", header_line)
+    if not match:
+        return header_line
+    prefix, inner = match.groups()
+    flattened_inner = inner.replace("<", "").replace(">", "")
+    return f"{prefix}=<{flattened_inner}>"
 
 
 def get_structured_meta_values(value):
     if not (value.startswith("<") and value.endswith(">")):
-        raise ParsingError(f"Meta information line is formatted correctly:\n{value}")
+        raise ParsingError(f"Meta information line is formatted incorrectly:\n{value}")
     values = {}
     current_key = []
     current_value = []
@@ -271,13 +375,18 @@ def process_header(file_path):
     info_whitelist = INFO_RESERVED_KEYS.copy()
     header_lines = []
     for line in view_process.stdout:
+        full_length = len(line)
+        line = line.rstrip("\r\n")
+        if len(line) == full_length:
+            # No line ending, has view_process crashed?
+            view_process.check()
         line = line.rstrip("\r\n")
         if line.startswith("##INFO=<"):
             # INFO line, add to whitelist if Type is not "String"
             info_attributes = get_structured_meta_values(line[7:])
             if info_attributes.get("Type", "String") != "String":
                 info_whitelist.add(info_attributes.get("ID"))
-        new_line = anonymise_header_line(line)
+        new_line = anonymise_header_line(remove_nested_angle_brackets(line))
         header_lines.append(new_line)
         if new_line != line:
             header_changes = True
@@ -297,23 +406,38 @@ def process_records(file_path, header_lines, info_whitelist):
         stdout=subprocess.PIPE,
         error_message="Reading records failed",
     )
-    changed_lines = header_lines.copy()
+    header_lines = header_lines.copy()
     # Remove sample columns from header
-    changed_lines[-1] = "\t".join(changed_lines[-1].split("\t", 8)[:8])
+    header_lines[-1] = "\t".join(header_lines[-1].split("\t", 8)[:8])
     num_records_changed = 0
-    viewer = Viewer(ANNOTATION_PATH)
+    viewer = Viewer(
+        [
+            "bcftools",
+            "view",
+            "--no-version",
+            "--output-type",
+            "z",
+            "--output",
+            ANNOTATION_PATH,
+            "--write-index",
+        ],
+        "Creating deidentified records failed",
+    )
     for line in view_process.stdout:
+        full_length = len(line)
+        line = line.rstrip("\r\n")
+        if len(line) == full_length:
+            # No line ending, has view_process crashed?
+            view_process.check()
         line = line.rstrip("\r\n")
         new_line = anonymise_vcf_record(line, info_whitelist)
         if new_line is not None:
-            changed_lines.append(new_line)
+            if num_records_changed == 0:
+                viewer.ingest(header_lines + [new_line])
+            else:
+                viewer.ingest([new_line])
             num_records_changed += 1
-            if len(changed_lines) > MAX_LINES_PER_PRINT:
-                viewer.ingest(changed_lines)
-                changed_lines.clear()
     view_process.check()
-    if changed_lines:
-        viewer.ingest(changed_lines)
     viewer.close()
     if num_records_changed:
         print(
@@ -397,7 +521,7 @@ def anonymise_vcf(input_path, output_path):
             reheader_process.check()
         if output_type in "zb":
             index_process = CheckedProcess(
-                args=["bcftools", "index", output_path],
+                args=["bcftools", "index", "--force", output_path],
                 error_message="Indexing anonymised file failed",
             )
             index_process.check()
@@ -413,22 +537,146 @@ def anonymise_vcf(input_path, output_path):
     else:
         print("No PII detected in VCF file, copying verbatim")
         files_to_move = [input_path]
+        if output_type in "zb":
+            index_process = CheckedProcess(
+                args=["bcftools", "index", "--force", input_path],
+                error_message="Indexing original file failed",
+            )
+            index_process.check()
+            files_to_move.append(f"{input_path}.csi")
     return files_to_move
 
 
 def process_tabular(input_path, output_path, delimiter):
-    """Processes CSV/TSV files to deidentify PII, writing results line-by-line."""
+    """Processes CSV/TSV files to deidentify PII and drop sensitive columns."""
     with open(input_path, "r", newline="", encoding="utf-8") as infile:
         reader = csv.reader(infile, delimiter=delimiter)
+        header = next(reader)
+        is_individual = any(
+            col_name.casefold() in INDIVIDUAL_MARKER_FIELDS for col_name in header
+        )
+        columns_to_keep = [
+            idx
+            for idx, col_name in enumerate(header)
+            if not any(
+                re.match(pattern, col_name) for pattern in METADATA_KEY_PII_PATTERNS
+            )
+            and not (is_individual and NAME_PATTERN.search(col_name))
+        ]
         with open(output_path, "w", newline="", encoding="utf-8") as outfile:
             writer = csv.writer(outfile, delimiter=delimiter)
+
+            filtered_header = [header[idx] for idx in columns_to_keep]
+            writer.writerow(filtered_header)
             for row in reader:
-                deidentified_row = [anonymise(field) for field in row]
-                writer.writerow(deidentified_row)
+                filtered_row = [anonymise(row[idx]) for idx in columns_to_keep]
+                writer.writerow(filtered_row)
+
+
+def outfile_after_element(stack, outfile):
+    if stack:
+        if "stored_outfile" in stack[-1]:
+            stack[-1].setdefault("name_strings", []).append(
+                outfile.getvalue().strip(",")
+            )
+            outfile.close()
+            outfile = stack[-1].pop("stored_outfile")
+        if stack[-1].get("skip_first"):
+            del stack[-1]["skip_first"]
+        else:
+            stack[-1]["first"] = False
+    return outfile
+
+
+def process_json(input_path, output_path):
+    """Process JSON files to deidentify PII, writing results line-by-line and omitting sensitive keys"""
+    with open(input_path, "r") as infile, open(output_path, "w") as outfile:
+        parser = ijson.parse(infile)
+        # The stack holds a dictionary for each container with keys:
+        #  'type': "object" or "array"
+        #  'first': boolean flag, True if no item has been written yet.
+        #  'pending_key': for objects, True if a key was written but its value not has not yet been written.
+        stack = []
+        keybuffer = None  # When set, skip all subelements
+
+        for prefix, event, value in parser:
+            if keybuffer and not prefix.startswith(keybuffer):
+                keybuffer = None
+            if keybuffer:
+                continue
+
+            if event == "start_map":
+                if stack:
+                    if stack[-1]["type"] == "object" and stack[-1].get("pending_key"):
+                        outfile.write(":")
+                        stack[-1]["pending_key"] = False
+                    elif stack[-1]["type"] == "array" and not stack[-1]["first"]:
+                        outfile.write(",")
+                outfile.write("{")
+                stack.append({"type": "object", "first": True, "pending_key": False})
+
+            elif event == "end_map":
+                if "name_strings" in stack[-1] and not stack[-1].get("is_individual"):
+                    if not stack[-1]["first"]:
+                        outfile.write(",")
+                    outfile.write(",".join(stack[-1].pop("name_strings")))
+                outfile.write("}")
+                stack.pop()
+                outfile = outfile_after_element(stack, outfile)
+
+            elif event == "start_array":
+                if stack:
+                    if stack[-1]["type"] == "object" and stack[-1].get("pending_key"):
+                        outfile.write(":")
+                        stack[-1]["pending_key"] = False
+                    elif stack[-1]["type"] == "array" and not stack[-1]["first"]:
+                        outfile.write(",")
+                outfile.write("[")
+                stack.append({"type": "array", "first": True})
+
+            elif event == "end_array":
+                outfile.write("]")
+                stack.pop()
+                outfile = outfile_after_element(stack, outfile)
+
+            elif event == "map_key":
+                if value.casefold() in INDIVIDUAL_MARKER_FIELDS:
+                    stack[-1]["is_individual"] = True
+                # If the key matches a PII pattern, set the keybuffer to skip its subtree.
+                if any(
+                    re.match(pattern, value) for pattern in METADATA_KEY_PII_PATTERNS
+                ):
+                    keybuffer = f"{prefix}.{value}"
+                    continue
+                if NAME_PATTERN.search(value):
+                    stack[-1]["stored_outfile"] = outfile
+                    outfile = io.StringIO()
+                    stack[-1]["skip_first"] = True
+                if stack and stack[-1]["type"] == "object":
+                    if not stack[-1]["first"]:
+                        outfile.write(",")
+                    outfile.write(json.dumps(value))
+                    stack[-1]["pending_key"] = True
+
+            elif event in ("string", "number", "boolean", "null"):
+                if stack:
+                    if stack[-1]["type"] == "object" and stack[-1].get("pending_key"):
+                        outfile.write(":")
+                        stack[-1]["pending_key"] = False
+                    elif stack[-1]["type"] == "array":
+                        if not stack[-1]["first"]:
+                            outfile.write(",")
+                if event == "string":
+                    outfile.write(json.dumps(anonymise(value)))
+                else:
+                    outfile.write(json.dumps(value))
+                outfile = outfile_after_element(stack, outfile)
+
+        outfile.write("\n")
 
 
 def process_flatfile(input_path, output_path):
-    """Processes flat files (.txt, .json) to deidentify PII, writing results line-by-line."""
+    """Processes TXT files to deidentify PII, writing results line-by-line."""
     with open(input_path, "r") as infile, open(output_path, "w") as outfile:
         for line in infile:
             deidentified_line = anonymise(line)
@@ -436,9 +684,11 @@ def process_flatfile(input_path, output_path):
 
 
 def deidentify_metadata(local_input_path, local_output_path):
-    """Main function to process file from S3, deidentify, and upload back to S3."""
+    """Dispatch metadata files to the right processor based on suffix."""
 
-    if local_input_path.endswith(".json") or local_input_path.endswith(".txt"):
+    if local_input_path.endswith(".json"):
+        process_json(local_input_path, local_output_path)
+    elif local_input_path.endswith(".txt"):
         process_flatfile(local_input_path, local_output_path)
     elif local_input_path.endswith(".csv"):
         process_tabular(local_input_path, local_output_path, delimiter=",")
@@ -454,7 +704,7 @@ def deidentify(file_name):
     if any(file_name.endswith(suffix) for suffix in GENOMIC_SUFFIX_TYPES.keys()):
         try:
             anonymise_vcf(local_input_path, local_output_path)
-        except (BcftoolsError, ParsingError) as e:
+        except (ProcessError, ParsingError) as e:
             print(f"An error occurred while deidentifying {file_name}: {e}")
             print("Exiting")
             return
